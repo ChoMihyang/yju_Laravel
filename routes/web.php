@@ -17,9 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// uri : foo 라는 uri 가 요청되었을 경우
-// action : 객체화하고자 하는 컨트롤러 @ 그 객체에서 호출할 메서드 이름
+// fileUpload.blade.php 파일 이동 시 FileUploadController 내 fileUpload() 메서드 실행
+Route::get('/fileUpload', 'FileUploadController@fileUpload');
 
-Route::get('/foo', 'FooController@name');
+// file-upload.blade.php 파일 이동 시 FileUploadController 내 fileUploadPost() 메서드 실행
+Route::post('/file-upload', 'FileUploadController@fileUploadPost');
 
-Route::get('/bar','BarController@info');
+// stdlist.blade.php 파일 이동 시 studentController 내 list() 메서드 실행
+Route::get('/stdlist', 'studentController@list');
+
+// ggeneration.blade.php 파일 이동 시 studentController 내 createGroup() 메서드 실행
+Route::post('/ggeneration','studentController@createGroup');
+
+
+

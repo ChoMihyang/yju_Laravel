@@ -14,7 +14,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+    // 사용할 DBMS 설정
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
