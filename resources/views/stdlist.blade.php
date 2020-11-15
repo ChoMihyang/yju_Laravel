@@ -34,6 +34,5 @@
     <button type="submit">그룹생성</button>
     </form>
 </fieldset>
-
 </body>
 </html>

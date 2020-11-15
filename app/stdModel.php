@@ -12,3 +12,4 @@ class stdModel extends Model{
     // Record 등록 시 timestamps 사용 안 함
     public $timestamps = false;
 }
+

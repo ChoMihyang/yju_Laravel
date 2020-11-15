@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<h2>파일 업로드 완료 화면</h2>
+<h2>파일 업로드 완료</h2>
 </body>
 </html>

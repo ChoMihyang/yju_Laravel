@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});S
+
+use Illuminate\Support\Facades\Route;
 
 // fileUpload.blade.php 파일 이동 시 FileUploadController 내 fileUpload() 메서드 실행
 Route::get('/fileUpload', 'FileUploadController@fileUpload');

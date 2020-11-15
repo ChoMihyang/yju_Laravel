@@ -48,20 +48,19 @@ class studentController extends Controller
             'ggeneration',
             [
                 'numOfGroup'    => $numOfGroup,
-                'stdLists'      => $stdList,
                 'numOfStd'      => $numOfStd,
-                'resultOfGroup' => $resultOfAllGroup,
+                'resultOfGroup' => $resultOfAllGroup
             ]);
     }
 
 
     // 남학생, 여학생, 총 학생 수 획득 메서드
-    public function numOfStd($argArray)
+    public function numOfStd($argStdList)
     {
         $numOfStd = ["totalNum" => 0, "numOfFemale" => 0, "numOfMale" => 0];
 
         // 남학생, 여학생 수 count
-        foreach ($argArray as $argStd) {
+        foreach ($argStdList as $argStd) {
             if ($argStd->gender == "MALE") $numOfStd['numOfMale']++;
             else                           $numOfStd['numOfFemale']++;
         }
@@ -89,7 +88,7 @@ class studentController extends Controller
         // 총 11명을 4조로 배정할 경우 우선 일정하게 배정하면 한 조에 2명이 된다.
         $lineOfGroup   = (int)(count($listOfMale) / $numOfGroup);
 
-        // 생성 그룹 수만큼 그룹 배열 및 각 그룹 내 학생의 총점 배열 생성
+        // 생성 그룹 수만큼 그룹 배열 생성
         //todo
         // php 에서 배열은 길이가 정해져 있지 않지만 아래 내용이 없으면 parameter 에러 발생
         // --> why??
@@ -237,12 +236,12 @@ class studentController extends Controller
             $countOfC1 = 0;
             $countOfC2 = 0;
             // 학생 배열 순회하며 충돌키 중복 판단
-            foreach ($argGroup[$i] as $std) {
+            foreach ($argGroup[$i] as $argStd) {
                 // 만일 충돌키가 'C1' 이라면 해당 변수에 +1 증가
-                if (trim($std->ckey) == "C1"){
+                if (trim($argStd->ckey) == "C1"){
                     $countOfC1 += 1;
                     // 만일 충돌키가 'C2' 이라면 해당 변수에 +1 증가
-                }else if(trim($std->ckey) == "C2"){
+                }else if(trim($argStd->ckey) == "C2"){
                     $countOfC2 += 1;
                 }
             }
