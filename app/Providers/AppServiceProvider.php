@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Faker\Provider\File;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,23 +13,23 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});S
+Route::prefix('/student')->group(function () {
+    // 전체 학생 목록 출력
+    Route::get('/all', 'StudentController@list');
 
-use Illuminate\Support\Facades\Route;
+    // 새 학생 정보 입력 후 전체 목록 출력
+    Route::post('/insert', 'StudentController@insert');
 
-// fileUpload.blade.php 파일 이동 시 FileUploadController 내 fileUpload() 메서드 실행
-Route::get('/fileUpload', 'FileUploadController@fileUpload');
+    // 학생 정보 수정 페이지 출력
+    Route::get('/modify_view', 'StudentController@getStdInfo');
 
-// file-upload.blade.php 파일 이동 시 FileUploadController 내 fileUploadPost() 메서드 실행
-Route::post('/file-upload', 'FileUploadController@fileUploadPost');
+    // DB 내 학생 정보 업데이트 후 전체 목록 출력
+    Route::get('/modify', 'StudentController@modify');
 
-// stdlist.blade.php 파일 이동 시 studentController 내 list() 메서드 실행
-Route::get('/stdlist', 'studentController@list');
+    // 학생의 성적 정보 삭제 후 전체 목록 출력
+    Route::post('/delete', 'StudentController@delete');
+});
 
-// ggeneration.blade.php 파일 이동 시 studentController 내 createGroup() 메서드 실행
-Route::post('/ggeneration','studentController@createGroup');
 
 
 
